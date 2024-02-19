@@ -35,6 +35,13 @@ async def make_prediction(item: Item):
         return {"prediction": prediction.tolist()}
     except Exception as e:
         raise HTTPException(status_code=400, detail=str(e))
+    
+# @app.post("/yesno/")
+# async def yesno(query):
+#     if query == "is mlflow working?":
+#         return {"response": "yes"}
+#     else:
+#         return {"response": "no"}
 
 if __name__ == "__main__":
     import uvicorn
