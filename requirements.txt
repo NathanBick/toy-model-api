@@ -2,3 +2,4 @@ mlflow
 pandas
 fastapi
 uvicorn
+azureml-sdk
