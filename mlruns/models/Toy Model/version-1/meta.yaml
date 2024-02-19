@@ -1,0 +1,14 @@
+aliases: []
+creation_timestamp: 1708378488131
+current_stage: None
+description: ''
+last_updated_timestamp: 1708378488131
+name: Toy Model
+run_id: 106c7851906b469590ddf93c5dae85d3
+run_link: ''
+source: mlflow-artifacts:/0/106c7851906b469590ddf93c5dae85d3/artifacts/toy_model
+status: READY
+status_message: null
+storage_location: mlflow-artifacts:/0/106c7851906b469590ddf93c5dae85d3/artifacts/toy_model
+user_id: null
+version: 1
