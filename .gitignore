@@ -1,3 +1,8 @@
 *.pkl
-.venv
+
+# mlflow artifacts
 mlruns
+mlartifacts
+
+.venv
+__pycache__
