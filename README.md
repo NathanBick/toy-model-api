@@ -1,3 +1,7 @@
+# Toy Model Inference
+
+## Setup
+
 Virtual Environment 
 
 ```bash
@@ -6,8 +10,12 @@ source .venv/bin/activate
 pip install -r requirements.txt
 ```
 
-Commands to set up ML Flow
+ML Flow
     
 ```bash
 mlflow server
 ```
+
+## Training
+
+## Inference
