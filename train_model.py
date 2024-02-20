@@ -6,6 +6,9 @@
 import mlflow
 import pickle
 
+from azure.ai.ml import MLClient
+from azure.identity import DefaultAzureCredential
+
 import pandas as pd
 from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LinearRegression
@@ -14,8 +17,11 @@ from sklearn.linear_model import LinearRegression
 TEST_SIZE = 0.2
 RANDOM_STATE = 42
 
-# set mlflow tracking uri
-mlflow.set_tracking_uri("http://127.0.0.1:5000")
+ml_client = MLClient.from_config(credential=DefaultAzureCredential())
+
+# Set MLflow tracking URI
+mlflow_tracking_uri = ml_client.workspaces.get(ml_client.workspace_name).mlflow_tracking_uri
+mlflow.set_tracking_uri(mlflow_tracking_uri)
 
 # load data
 data = pd.read_csv("data/boston.csv")
@@ -25,16 +31,19 @@ X = data.drop("MEDV", axis=1)
 y = data["MEDV"]
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=TEST_SIZE, random_state=RANDOM_STATE)
 
-
 # start mlflow run
-mlflow.start_run(run_name="train_toy_model")
+RUN_NAME = "train_toy_model"
+mlflow.start_run(run_name=RUN_NAME)
+
+print("MLflow run_id:", mlflow.active_run().info.run_id)
+print(RUN_NAME)
 
 # log parameters
 mlflow.log_param("test_size", TEST_SIZE)
 mlflow.log_param("random_state", RANDOM_STATE)
 
 # log data
-mlflow.log_artifact("data/boston.csv")
+mlflow.log_artifact(data, "boston.csv")
 
 # train model
 model = LinearRegression()
