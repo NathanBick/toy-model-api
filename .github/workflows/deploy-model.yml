@@ -1,0 +1,30 @@
+name: Deploy Model as Web Service
+
+on:
+  workflow_dispatch:
+
+jobs:
+  deploy-model:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.8'
+
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install azureml-core
+        pip install -r requirements.txt
+
+    - name: Login to Azure
+      uses: azure/login@v1
+      with:
+        creds: ${{ secrets.AZURE_CREDENTIALS }}
+
+    - name: Deploy model
+      run: |
+        az ml model deploy -n MyEndpoint --model MyModel:1 --workspace-name ${{ secrets.WORKSPACE_NAME }} --resource-group ${{ secrets.RESOURCE_GROUP }} --compute-type AzureContainerInstance --cpu 1 --memory 1
