@@ -6,6 +6,7 @@
 import mlflow
 import pickle
 
+from azureml.core import Workspace
 from azure.ai.ml import MLClient
 from azure.identity import DefaultAzureCredential
 
@@ -23,6 +24,9 @@ ml_client = MLClient.from_config(credential=DefaultAzureCredential())
 mlflow_tracking_uri = ml_client.workspaces.get(ml_client.workspace_name).mlflow_tracking_uri
 mlflow.set_tracking_uri(mlflow_tracking_uri)
 
+# authenticate to azure
+ws = Workspace.from_config()
+
 # load data
 data = pd.read_csv("data/boston.csv")
 
@@ -32,7 +36,8 @@ y = data["MEDV"]
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=TEST_SIZE, random_state=RANDOM_STATE)
 
 # start mlflow run
-RUN_NAME = "train_toy_model"
+# note that our ML workspace is public
+RUN_NAME = "train_toy_model" 
 mlflow.start_run(run_name=RUN_NAME)
 
 print("MLflow run_id:", mlflow.active_run().info.run_id)
@@ -43,7 +48,7 @@ mlflow.log_param("test_size", TEST_SIZE)
 mlflow.log_param("random_state", RANDOM_STATE)
 
 # log data
-mlflow.log_artifact(data, "boston.csv")
+mlflow.log_artifact(local_path="data/boston.csv")
 
 # train model
 model = LinearRegression()
@@ -55,13 +60,12 @@ mlflow.sklearn.log_model(model, "toy_model")
 # evaluate model using mlflow
 y_pred = model.predict(X_test)
 mse = ((y_pred - y_test) ** 2).mean()
+r2 = model.score(X_test, y_test)
 mlflow.log_metric("mse", mse)
-
-#  register model. 
-mlflow.sklearn.save_model(model, "toy_model")
+mlflow.log_metric("r2", r2)
 
 # end mlflow run
 mlflow.end_run()
 
 # save the model in pickle format
-pickle.dump(model, open("toy_model.pkl", "wb"))
+pickle.dump (model, open("toy_model.pkl", "wb"))
