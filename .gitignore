@@ -1,4 +1,7 @@
 *.pkl
+config.json
+
+Notes.md
 
 # mlflow artifacts
 mlruns
