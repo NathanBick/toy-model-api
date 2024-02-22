@@ -41,7 +41,7 @@ resource "azurerm_service_plan" "my_app_service" {
   os_type = "Windows"
 
   sku_name = "P1v2"
-  worker_count = 4 # <<<<<<<<<< Try changing this to 8 to compare the costs
+  worker_count = 2 # <<<<<<<<<< Try changing this to 8 to compare the costs
 
   tags = {
     Environment = "Prod"
