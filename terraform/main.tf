@@ -35,7 +35,7 @@ resource "azurerm_subnet" "examplesubnet" {
 
 # Azure storage account
 resource "azurerm_storage_account" "sa" {
-  name                     = "stterraformtest"
+  name                     = "storageterraformtest"
   resource_group_name      = azurerm_resource_group.rg.name
   location                 = azurerm_resource_group.rg.location
   account_tier             = "Standard"
