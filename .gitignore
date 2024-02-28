@@ -12,6 +12,7 @@ mlartifacts
 __pycache__
 
 # Local .terraform directories
+tf_role.sh
 **/.terraform/*
 
 # .tfstate files
