@@ -385,12 +385,12 @@ requests = "*"
 
 [[package]]
 name = "azureml-core"
-version = "1.55.0.post1"
+version = "1.55.0.post2"
 description = "Azure Machine Learning core packages, modules, and classes"
 optional = false
 python-versions = ">=3.7,< 4.0"
 files = [
-    {file = "azureml_core-1.55.0.post1-py3-none-any.whl", hash = "sha256:a0e165ba9d2ab81dced731c2290de82d04b8045fe852cdb508afaa564d6f2c6b"},
+    {file = "azureml_core-1.55.0.post2-py3-none-any.whl", hash = "sha256:58d5a2ca698332b70d48f82a1672f57f4777574c1c58d50e0d1857700050497d"},
 ]
 
 [package.dependencies]
@@ -3306,4 +3306,4 @@ testing = ["big-O", "jaraco.functools", "jaraco.itertools", "more-itertools", "p
 [metadata]
 lock-version = "2.0"
 python-versions = ">=3.11, <3.12"
-content-hash = "76f969059f0f4d6234cfb4f0118a04c2d908a6a97793e9a9506f9b3faf18e284"
+content-hash = "a74498e2344ada8e20ef4972fd418c9e35e06cf06e520e6a03e332ccddc8da86"
