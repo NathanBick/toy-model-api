@@ -399,12 +399,12 @@ requests = "*"
 
 [[package]]
 name = "azureml-core"
-version = "1.55.0.post1"
+version = "1.56.0"
 description = "Azure Machine Learning core packages, modules, and classes"
 optional = false
-python-versions = ">=3.7,< 4.0"
+python-versions = "<4.0,>=3.8"
 files = [
-    {file = "azureml_core-1.55.0.post1-py3-none-any.whl", hash = "sha256:a0e165ba9d2ab81dced731c2290de82d04b8045fe852cdb508afaa564d6f2c6b"},
+    {file = "azureml_core-1.56.0-py3-none-any.whl", hash = "sha256:490fb3289f7ed3d661382c4e45c2d5565963aacc3d2c0c32e255a798654b8532"},
 ]
 
 [package.dependencies]
@@ -416,7 +416,7 @@ azure-graphrbac = ">=0.40.0,<1.0.0"
 azure-mgmt-authorization = ">=0.40.0,<5"
 azure-mgmt-containerregistry = ">=8.2.0,<11"
 azure-mgmt-keyvault = ">=0.40.0,<11.0.0"
-azure-mgmt-network = "<=25.2.0"
+azure-mgmt-network = "<=26.0.0"
 azure-mgmt-resource = ">=15.0.0,<=24.0.0"
 azure-mgmt-storage = ">=16.0.0,<=22.0.0"
 "backports.tempfile" = "*"
@@ -431,7 +431,7 @@ msal-extensions = ">=0.3.0,<=2.0.0"
 msrest = ">=0.5.1,<=0.7.1"
 msrestazure = ">=0.4.33,<=0.6.4"
 ndg-httpsclient = "<=0.5.1"
-packaging = ">=20.0,<=24.0"
+packaging = ">=20.0,<=25.0"
 paramiko = ">=2.0.8,<4.0.0"
 pathspec = "<1.0.0"
 pkginfo = "*"
@@ -3366,4 +3366,4 @@ testing = ["big-O", "jaraco.functools", "jaraco.itertools", "more-itertools", "p
 [metadata]
 lock-version = "2.0"
 python-versions = ">=3.11, <3.12"
-content-hash = "8cc1de6a70aeb801fa7ad7dc9a77420f8b3d478444ac185910316eb3e6d74148"
+content-hash = "154b6c575efbef699580e8d548559dc6687fa720b2da41632cfe5559c805843b"
