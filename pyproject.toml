@@ -13,7 +13,7 @@ uvicorn = "^0.27.1"
 azure-ai-ml = "^1.13.0"
 azureml-mlflow = "^1.55.0"
 azureml = "^0.2.7"
-azureml-core = "^1.55.0.post1"
+azureml-core = "^1.56.0"
 
 
 [build-system]
