@@ -116,37 +116,39 @@ tests-no-zope = ["attrs[tests-mypy]", "cloudpickle", "hypothesis", "pympler", "p
 
 [[package]]
 name = "azure-ai-ml"
-version = "1.13.0"
+version = "1.16.0"
 description = "Microsoft Azure Machine Learning Client Library for Python"
 optional = false
-python-versions = "<4.0,>=3.7"
+python-versions = ">=3.7"
 files = [
-    {file = "azure-ai-ml-1.13.0.tar.gz", hash = "sha256:3f21126778b62f20948e76490e8e2f7f5929da55ff64022d443b394549233827"},
-    {file = "azure_ai_ml-1.13.0-py3-none-any.whl", hash = "sha256:7e564ba6afd6c63b8c7671c79028a5448f4faa7c0f3c077bbac98f5fe5570809"},
+    {file = "azure-ai-ml-1.16.0.tar.gz", hash = "sha256:5799f47366edc40f2ffac8ed5fdff3899b453f3a20dcbc2f7634e976e7cbafda"},
+    {file = "azure_ai_ml-1.16.0-py3-none-any.whl", hash = "sha256:dfd40debf9facded9a3d5938b9dd6e1ab5b8c63d5b41207883ed30a3ee449df2"},
 ]
 
 [package.dependencies]
-azure-common = ">=1.1,<2.0.0"
-azure-core = ">=1.23.0,<2.0.0"
-azure-mgmt-core = ">=1.3.0,<2.0.0"
-azure-storage-blob = ">=12.10.0,<13.0.0"
-azure-storage-file-datalake = "<13.0.0"
-azure-storage-file-share = "<13.0.0"
-colorama = "<0.5.0"
+azure-common = ">=1.1"
+azure-core = ">=1.23.0"
+azure-mgmt-core = ">=1.3.0"
+azure-storage-blob = ">=12.10.0"
+azure-storage-file-datalake = ">=12.2.0"
+azure-storage-file-share = "*"
+colorama = "*"
 isodate = "*"
-jsonschema = ">=4.0.0,<5.0.0"
-marshmallow = ">=3.5,<4.0.0"
+jsonschema = ">=4.0.0"
+marshmallow = ">=3.5"
 msrest = ">=0.6.18"
-opencensus-ext-azure = "<2.0.0"
-pydash = ">=6.0.0,<7.0.6"
-pyjwt = "<3.0.0"
-pyyaml = ">=5.1.0,<7.0.0"
-strictyaml = "<2.0.0"
-tqdm = "<5.0.0"
-typing-extensions = "<5.0.0"
+opencensus-ext-azure = "*"
+opencensus-ext-logging = "*"
+pydash = ">=6.0.0"
+pyjwt = "*"
+pyyaml = ">=5.1.0"
+strictyaml = "*"
+tqdm = "*"
+typing-extensions = "*"
 
 [package.extras]
 designer = ["mldesigner"]
+mount = ["azureml-dataprep-rslex (>=2.22.0)"]
 
 [[package]]
 name = "azure-common"
@@ -2046,6 +2048,20 @@ psutil = ">=5.6.3"
 requests = ">=2.19.0"
 
 [[package]]
+name = "opencensus-ext-logging"
+version = "0.1.1"
+description = "OpenCensus logging Integration"
+optional = false
+python-versions = "*"
+files = [
+    {file = "opencensus-ext-logging-0.1.1.tar.gz", hash = "sha256:c203b70f034151dada529f543af330ba17aaffec27d8a5267d03c713eb1de334"},
+    {file = "opencensus_ext_logging-0.1.1-py2.py3-none-any.whl", hash = "sha256:cfdaf5da5d8b195ff3d1af87a4066a6621a28046173f6be4b0b6caec4a3ca89f"},
+]
+
+[package.dependencies]
+opencensus = ">=0.8.0,<1.0.0"
+
+[[package]]
 name = "packaging"
 version = "23.2"
 description = "Core utilities for Python packages"
@@ -3366,4 +3382,4 @@ testing = ["big-O", "jaraco.functools", "jaraco.itertools", "more-itertools", "p
 [metadata]
 lock-version = "2.0"
 python-versions = ">=3.11, <3.12"
-content-hash = "8cc1de6a70aeb801fa7ad7dc9a77420f8b3d478444ac185910316eb3e6d74148"
+content-hash = "c4d62ef044a93cb505cbf270a57771e30eea9926f8741e3a61e5b8b8d286273a"
